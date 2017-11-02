@@ -137,7 +137,7 @@ class EnvironmentFactoryCase(BaseEnvironmentCase):
         '''
         SOURCE_DIR = os.getenv('TSQA_SRC_DIR', '~/trafficserver')
         TMP_DIR = os.getenv('TSQA_TMP_DIR','/tmp/tsqa')
-        ef = tsqa.environment.EnvironmentFactory(SOURCE_DIR, os.path.join(TMP_DIR, 'base_envs'))
+        ef = tsqa.environment.EnvironmentFactory(os.path.expanduser(SOURCE_DIR), os.path.join(TMP_DIR, 'base_envs'))
         return ef.get_environment(cls.environment_factory['configure'], cls.environment_factory['env'])
 
 
